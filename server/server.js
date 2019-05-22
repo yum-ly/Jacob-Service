@@ -13,7 +13,7 @@ app.listen(port, ()=>{
 
 app.get('/api/dbOnConnect', (req, res)=>{
     // i want to be able to ping the server and reload the db
-    seed()
+    //seed()
     //maybe eventually I can also make a seperate request to delete the databaseSeed.txt file and another 
     //to send it over. probably all doable with the deployment tools we'll learn soon but might be a good
     //exercise either way

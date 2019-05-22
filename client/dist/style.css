@@ -1,0 +1,18 @@
+#searchbar{
+    display: flex;
+    width: 100%;
+    position: absolute; top: 0; left: 0;
+}
+
+.searchbar-left-elements{
+    float: right;
+}
+
+.search-focus-opacity{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; 
+    left: 0;
+
+}

@@ -1,18 +1,83 @@
-#searchbar{
+#root{
+    padding:0px;
+}
+
+#dropdown{
+    position: absolute;
+    width:400px;
+    left: 215px;
+    top:0px;
+    height: 560px;
+    background-color: white;
+    flex-basis: 50%;
+    border-style: solid;
+    border-width: 1px;
+    z-index:101;
+    padding: 0px;
+}
+
+.dropdown-top{
+    height:80px;
+    width:100%;
+    background-color:lightgrey;
+}
+
+.dropdown-element{
+    border-style: solid;
+    border-width:1px;
+    padding: 0px;
+    width: 50%;
+    height: 100%;
+}
+
+#logo-link img{
+    height:80px;
+    width:215px;
+}
+
+#carosel-parent{
+    position:absolute;
+    top:80px;
+    left: 0px;
+    width:100%;
+    height:380px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+}
+
+#topbar{
+    height: 80px;
     display: flex;
     width: 100%;
     position: absolute; top: 0; left: 0;
 }
 
-.searchbar-left-elements{
-    float: right;
+#searchbar{
+    height: 80px;
+    z-index: 102;
+    margin: auto;
+    position: absolute;
 }
 
-.search-focus-opacity{
+#logo-link{
+    height:80px;
+    width: 215px;
+}
+
+#searchbar-right-elements{
+    flex-wrap: nowrap;
+}
+#searchbar-left-elements{
+    display: flex;
+    flex-basis: 50%;
+}
+
+#search-focus-opacity{
     height: 100%;
     width: 100%;
     position: absolute;
     top: 0; 
     left: 0;
-
+    z-index: 100;
 }

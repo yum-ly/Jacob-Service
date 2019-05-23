@@ -1,14 +1,15 @@
 import React from 'react';
+import DropdownElement from './DropdownElement.jsx'
 
 const Dropdown = (props) => {
-    console.log(props)
     return(
-    <div id='dropdown'>
-        <div id='left-dropdown-element'>
-
+    <div id='dropdown' style={props.dropdownIsVisible}>
+        <div class='dropdown-element'>
+        <div class='dropdown-top'></div>
+        {props.searchResults ? props.searchResults.map(element=><DropdownElement restaurant={element} />) : null}
         </div>
-        <div id='right-dropdown-element'>
-            
+        <div class='dropdown-element'>
+        <div class='dropdown-top' id='location-form'></div>
         </div>
     </div>
     )

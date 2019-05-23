@@ -1,11 +1,10 @@
 import React from 'react';
 
 const SearchForm = (props) => {
-    console.log(props)
     return(
     <div>
-        <form action="" class="searchbar">
-            <input type="text" onFocus={ props.onFocusHandler } onBlur={ props.onFocusHandler } placeholder='Search'/>
+        <form action="" id="searchbar">
+            <input type="text" onFocus={ props.onFocusHandler } onBlur={ props.onFocusHandler } onChange={ props.searchBarInputHandler} placeholder='Search'/>
         </form>
     </div>
     )

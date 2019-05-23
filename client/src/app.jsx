@@ -12,10 +12,12 @@ class App extends Component{
             formInput: '',
             searchFocus : {opacity: 1},
             dropdownIsVisible: {display: 'none'},
-            searchResults: []
+            searchResults: [],
+            currentRestaurant: {}
         }
         this.onFocusHandler = this.onFocusHandler.bind(this);
         this.searchBarInputHandler = this.searchBarInputHandler.bind(this);
+        this.selectCurrentRestaurant = this.selectCurrentRestaurant.bind(this);
     }
 
     componentDidMount(){
@@ -24,15 +26,21 @@ class App extends Component{
         // .catch((err)=>{console.log('error seeding database', err)})
     }
 
-    onFocusHandler(e){
+    selectCurrentRestaurant(restaurant){
+        this.setState({currentRestaurant : restaurant})
+    }
+
+    onFocusHandler(e, dropdown){
+        console.log(e.type)
         if(e.type==='focus'){
             this.setState({
                 searchFocus : {opacity: 0.5, 'background-color': "black"},
                 dropdownIsVisible : {display: 'flex'}
             })
-        }else{
+        }else if(e.type!=='click' && dropdown!==true){
+            console.log(e)
             this.setState({
-                searchFocus : {opacity: 1},
+                searchFocus : {display: 'none'},
                 dropdownIsVisible: {display: 'none'}
             })
         }
@@ -52,7 +60,7 @@ class App extends Component{
     <>
         <div id= 'search-focus-opacity'  style={this.state.searchFocus}>
         </div>
-        <Dropdown dropdownIsVisible={this.state.dropdownIsVisible} searchResults={this.state.searchResults}/>
+        <Dropdown onFocusHandler={this.onFocusHandler} dropdownIsVisible={this.state.dropdownIsVisible} searchResults={this.state.searchResults} selectCurrentRestaurant={this.selectCurrentRestaurant}/>
         <div id = 'topbar'>
             <div id='searchbar-left-elements'>
                 <div id='logo-link'><img src='placeholderLogo.png'/></div>
@@ -65,7 +73,7 @@ class App extends Component{
             </div>
         </div>
         <br/>
-        <ImageCarosel />
+        <ImageCarosel restaurant={this.state.currentRestaurant}/>
     </>
         )
     }

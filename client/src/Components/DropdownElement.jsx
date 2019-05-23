@@ -3,7 +3,7 @@ import React from 'react';
 const DropdownElement = (props)=>{
     return(
         <div>
-            {props.restaurant.name}
+            <a onClick={props.selectCurrentRestaurant} >{props.restaurant.name}</a>
         </div>
     )
 }

@@ -14,7 +14,9 @@ const searchbarSchema = new mongoose.Schema({
   },
   name : String,
   category : String,
-  BLD : String
+  BLD : String,
+  images : Array,
+
   })
   let searchbar = mongoose.model('Restaurant', searchbarSchema)
 

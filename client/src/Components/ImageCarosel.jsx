@@ -1,22 +1,32 @@
 import React, {Component} from 'react';
+import Axios from 'axios';
+import ImageTrio from './ImageTrio.jsx'
 
 class ImageCarosel extends Component{
     constructor(props){
         super(props);
         this.state = {
-            trios : []
+            trios : [],
+            currentRestaurant : {}
         }
     }
 
     componentDidMount(){
+        Axios.post('/api', {query : '1' , type: "data retrieve"})
+        .then((restaurant)=>{this.setState({currentRestaurant: restaurant.data[0]}, this.triosCreate)})
+    }
 
-        //this.setState({trios : triosCreate()})
+    componentDidUpdate(prevProps){
+        if (this.props.restaurant !== prevProps.restaurant) {
+            Axios.post('/api', {query : this.props.restaurant , type: "data retrieve"})
+               .then((restaurant)=>{this.setState({currentRestaurant: restaurant.data[0]}, this.triosCreate)})
+        }
     }
 
     triosCreate(){
-        currentTrio = []
-        allTrios = []
-        props.restaurant.image.map((element, i)=>{
+        let currentTrio = []
+        let allTrios = []
+        this.state.currentRestaurant.images.map((element, i)=>{
             if(i!==0 && i%3===0){
                 allTrios.push(currentTrio.slice());
                 currentTrio = [];
@@ -24,13 +34,14 @@ class ImageCarosel extends Component{
             currentTrio.push(element);
         })
 
-        return allTrios
+        this.setState({trios: allTrios});
     }
 
     render(){
         return(
             <div id='carosel-parent'>
-                {this.state.trios.map(element=><ImageTrio trio={element}/>)}
+                {this.state.trios.map((element, i)=><ImageTrio trio={element} counter={i} key={i}/>,console.log('test'))}
+                <div id='see-more-button'></div>
             </div>
         )
     }

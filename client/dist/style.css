@@ -22,6 +22,31 @@
     background-color:lightgrey;
 }
 
+.big-image{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    height: 350px;
+    width: 350px;
+    border: none;
+}
+
+.little-top{
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    height: 120px;
+    width: 145px;
+}
+
+.little-bottom{
+    position: absolute;
+    left: 10px;
+    top: 165px;
+    height: 145px;
+    width: 145px;
+}
+
 .dropdown-element{
     border-style: solid;
     border-width:1px;
@@ -36,6 +61,7 @@
 }
 
 #carosel-parent{
+    display: flex;
     position:absolute;
     top:80px;
     left: 0px;
@@ -46,6 +72,13 @@
     overflow: hidden;
 }
 
+.trio{
+    position: relative;
+    display: flex;
+    width:600px;
+    height:370px;
+}
+
 #topbar{
     height: 80px;
     display: flex;
@@ -54,7 +87,8 @@
 }
 
 #searchbar{
-    height: 80px;
+    left: 230px;
+    top: 30px;
     z-index: 102;
     margin: auto;
     position: absolute;

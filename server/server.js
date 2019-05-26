@@ -20,17 +20,25 @@ app.get('/api/dbOnConnect', (req, res)=>{
 })
 
 app.post('/api', (req, res)=>{
-    if(req.body.query!==""){
-        model.find({name: {$regex: '.*' + req.body.query + '.*' }})
-            .limit(7)
-            .sort({name:1})
-            .then((docs)=>{
-                    res.header(301);
-                    res.send(docs);
-                }
-            )
-    }else{
-        res.header(300);
-        res.end();
+    if(req.body.type === "form input"){
+        if(req.body.query!==""){
+            model.find({name: {$regex: '.*' + req.body.query + '.*' }})
+                .limit(7)
+                .sort({name:1})
+                .then((docs)=>{
+                        res.header(301);
+                        res.send(docs);
+                    }
+                )
+        }else{
+            res.header(300);
+            res.end();
+        }
+    }else if(req.body.type === "data retrieve"){
+        model.find({uuid : req.body.query})
+        .then((doc)=>{
+            res.header(301);
+            res.send(doc);
+        })
     }
 })

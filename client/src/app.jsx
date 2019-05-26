@@ -13,7 +13,7 @@ class App extends Component{
             searchFocus : {opacity: 1},
             dropdownIsVisible: {display: 'none'},
             searchResults: [],
-            currentRestaurant: {}
+            currentRestaurant: 0
         }
         this.onFocusHandler = this.onFocusHandler.bind(this);
         this.searchBarInputHandler = this.searchBarInputHandler.bind(this);
@@ -26,19 +26,17 @@ class App extends Component{
         // .catch((err)=>{console.log('error seeding database', err)})
     }
 
-    selectCurrentRestaurant(restaurant){
+    selectCurrentRestaurant(e, restaurant){
         this.setState({currentRestaurant : restaurant})
     }
 
-    onFocusHandler(e, dropdown){
-        console.log(e.type)
+    onFocusHandler(e){
         if(e.type==='focus'){
             this.setState({
                 searchFocus : {opacity: 0.5, 'background-color': "black"},
                 dropdownIsVisible : {display: 'flex'}
             })
-        }else if(e.type!=='click' && dropdown!==true){
-            console.log(e)
+        }else{
             this.setState({
                 searchFocus : {display: 'none'},
                 dropdownIsVisible: {display: 'none'}
@@ -48,7 +46,7 @@ class App extends Component{
 
     searchBarInputHandler(e){
         this.setState({formInput: e.target.value}, ()=>{
-            axios.post('/api', {query : this.state.formInput})
+            axios.post('/api', {query : this.state.formInput, type: "form input"})
             .then((response)=>{this.setState({searchResults: response.data})})
             .catch(()=>{console.log('there was an error posting the query')});
         })
@@ -58,13 +56,14 @@ class App extends Component{
     render(){
     return(
     <>
-        <div id= 'search-focus-opacity'  style={this.state.searchFocus}>
+        <div id= 'search-focus-opacity'  onClick={this.onFocusHandler} style={this.state.searchFocus}>
         </div>
-        <Dropdown onFocusHandler={this.onFocusHandler} dropdownIsVisible={this.state.dropdownIsVisible} searchResults={this.state.searchResults} selectCurrentRestaurant={this.selectCurrentRestaurant}/>
+        <Dropdown dropdownIsVisible={this.state.dropdownIsVisible} searchResults={this.state.searchResults} selectCurrentRestaurant={this.selectCurrentRestaurant}/>
+        <SearchForm onFocusHandler={this.onFocusHandler} searchBarInputHandler={this.searchBarInputHandler}/>
         <div id = 'topbar'>
             <div id='searchbar-left-elements'>
                 <div id='logo-link'><img src='placeholderLogo.png'/></div>
-                <SearchForm onFocusHandler={this.onFocusHandler} searchBarInputHandler={this.searchBarInputHandler}/>
+
             </div>
             <div id = 'searchbar-right-elements'>
                 <a>The Latest </a> 

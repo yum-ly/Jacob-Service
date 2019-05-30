@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 const fs = require('fs');
 const {username, password} = require('./config.js');
+require('dotenv').config();
 
+const mongoUser = process.env.MONGO_USER;
+const mongoPASS = process.env.MONGOPASS;
 
-mongoose.connect(`mongodb+srv://${username}:${password}@thedarkness-hrmqy.mongodb.net/test?retryWrites=true` , {useNewUrlParser: true});
+mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPASS}@thedarkness-hrmqy.mongodb.net/test?retryWrites=true` , {useNewUrlParser: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

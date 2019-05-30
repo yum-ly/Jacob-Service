@@ -3,6 +3,7 @@ const bodyparser = require('body-parser');
 const port = 3005
 const {seed, model} = require('../db');
 const fs = require('fs');
+require('dotenv').config();
 app = express();
 app.use(bodyparser.json());
 app.use(express.static('client/dist'));

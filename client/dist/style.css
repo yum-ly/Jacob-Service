@@ -36,6 +36,7 @@
 }
 
 #bar-parent{
+    display: flex;
     position:absolute;
     top:80px;
     left: 0px;
@@ -49,7 +50,7 @@
 
 .trio {
     width: 589px;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .big-image {
@@ -65,7 +66,6 @@
 
 .little-top {
     position: relative;
-    top: -195px;
     height: 190px;
     width: 195px;
     border-style: solid;
@@ -74,8 +74,6 @@
 
 .little-bottom {
     position: relative;
-    left: 392px;
-    top: -200px;
     height: 190px;
     width: 195px;
     border-style: solid;

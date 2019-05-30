@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "jacob/node-web-app",
+      "Name": "cyberimpxiii/searchbarcarosel",
       "Update": "true"
     },
     "Ports": [

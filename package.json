@@ -15,6 +15,9 @@
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
@@ -22,7 +25,7 @@
     "mongoose": "^5.5.9",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-    },
+  },
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",

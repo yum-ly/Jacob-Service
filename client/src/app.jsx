@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import SearchForm from './Components/searchForm.jsx'
-import ImageCarosel from './Components/ImageCarosel.jsx'
+import ImageBar from './Components/ImageCarosel/ImageBar.jsx'
 import Dropdown from './Components/Dropdown.jsx'
 
 class App extends Component{
@@ -10,7 +10,7 @@ class App extends Component{
         super()
         this.state = {
             formInput: '',
-            searchFocus : {opacity: 1},
+            searchFocus : {opacity: 1, display: 'none'},
             dropdownIsVisible: {display: 'none'},
             searchResults: [],
             currentRestaurant: 0
@@ -59,20 +59,19 @@ class App extends Component{
         <div id= 'search-focus-opacity'  onClick={this.onFocusHandler} style={this.state.searchFocus}>
         </div>
         <Dropdown dropdownIsVisible={this.state.dropdownIsVisible} searchResults={this.state.searchResults} selectCurrentRestaurant={this.selectCurrentRestaurant}/>
-        <SearchForm onFocusHandler={this.onFocusHandler} searchBarInputHandler={this.searchBarInputHandler}/>
         <div id = 'topbar'>
             <div id='searchbar-left-elements'>
                 <div id='logo-link'><img src='placeholderLogo.png'/></div>
-
+                <SearchForm onFocusHandler={this.onFocusHandler} searchBarInputHandler={this.searchBarInputHandler}/>
             </div>
-            <div id = 'searchbar-right-elements'>
+            <div id ='searchbar-right-elements'>
                 <a>The Latest </a> 
                 <a>City's Best </a> 
                 <a>Dropdown </a> 
             </div>
         </div>
         <br/>
-        <ImageCarosel restaurant={this.state.currentRestaurant}/>
+        <ImageBar restaurant={this.state.currentRestaurant}/>
     </>
         )
     }

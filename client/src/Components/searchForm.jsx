@@ -8,12 +8,12 @@ library.add(faSearch)
 
 const SearchForm = (props) => {
     return(
-    <>  
+    <div id='searchform-parent'>  
         <FontAwesomeIcon icon={faSearch} size="lg"/> 
         <form action="" id="searchbar">
             <input type="text" onFocus={ props.onFocusHandler } onChange={ props.searchBarInputHandler} placeholder='Find A Great Place Near You'/>
         </form>
-    </>
+    </div>
     )
 }
 

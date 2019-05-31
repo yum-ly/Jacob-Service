@@ -4,7 +4,7 @@ const {username, password} = require('./config.js');
 require('dotenv').config();
 
 const mongoUser = process.env.MONGO_USER;
-const mongoPASS = process.env.MONGOPASS;
+const mongoPASS = process.env.MONGO_PASS;
 
 mongoose.connect(`mongodb+srv://${mongoUser}:${mongoPASS}@thedarkness-hrmqy.mongodb.net/test?retryWrites=true` , {useNewUrlParser: true});
 

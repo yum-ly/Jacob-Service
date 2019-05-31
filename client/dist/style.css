@@ -129,6 +129,11 @@
     left: 255px;
 }
 
+#searchform-parent{
+    position: absolute;
+    width: calc(100% - 215px);
+}
+
 #searchbar{
     left: 290px;
     top: 30px;
@@ -200,6 +205,7 @@
 }
 
 #searchbar-left-elements{
+    position: absolute;
     max-width: 50%;
     display: flex;
     flex-grow: 1;

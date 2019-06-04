@@ -2,7 +2,6 @@ import React from 'react';
 
 const ImageTrio = (props)=>(
     <>
-    {/*  <div id={'trio' + props.counter} class='trio'> */}
     <div>
     <img class='big-image' src={props.trio[0]} onClick={props.onClick}></img>
     </div>

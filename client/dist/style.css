@@ -3,8 +3,8 @@
 }
 
 #dropdown{
-    position: absolute;
-    width:400px;
+    position: fixed;
+    width:70%;
     left: 215px;
     top:0px;
     height: 560px;
@@ -12,7 +12,7 @@
     flex-basis: 50%;
     border-style: solid;
     border-width: 1px;
-    z-index:101;
+    z-index:111;
     padding: 0px;
 }
 
@@ -41,16 +41,18 @@
     top:80px;
     left: 0px;
     height:380px;
-    border-style: solid;
-    border-width: 1px;
     overflow: hidden;
     padding: 0px;
-    width:100%
+    width:100%;
+    background-color:white;
+}
+
+#bar-parent img{
+    object-fit: contain;
 }
 
 .trio {
     width: 589px;
-    /* display: inline-block; */
 }
 
 .big-image {
@@ -60,24 +62,18 @@
     height: 383px;
     width: 390px;
     border: none;
-    border-style: solid;
-    border-width: 1px;
 }
 
 .little-top {
     position: relative;
     height: 190px;
     width: 195px;
-    border-style: solid;
-    border-width: 1px;
 }
 
 .little-bottom {
     position: relative;
     height: 190px;
     width: 195px;
-    border-style: solid;
-    border-width: 1px;
 }
 
 #see-more-button{
@@ -113,11 +109,16 @@
 
 
 #topbar{
+    background-color: white;
     height: 80px;
     display: flex;
     width: 100%;
-    position: absolute; top: 0; left: 0;
+    position: fixed; 
+    top: 0;
+    left: 0;
     overflow: hidden;
+    border-bottom: solid 1px grey;
+    z-index: 99;
 }
 
 
@@ -137,11 +138,34 @@
 #searchbar{
     left: 290px;
     top: 30px;
-    z-index: 102;
     margin: auto;
     position: absolute;
     width: 100%;
+    color:grey;
 
+}
+
+#searchbar-input{
+    left: 70px;
+    top: 30px;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    position:absolute;
+    z-index: 120;
+    border:none;
+    background-color: transparent;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 17px;
+    line-height: 20px;
+    font-family: 'Calibre-Regular';
+    width: 100%;
 }
 
 #searchbar input{
@@ -162,13 +186,12 @@
     width: 100%;
 }
 
-#searchbar form{
-
-}
-
 #logo-link{
     height:80px;
     width: 215px;
+}
+#logo-link img{
+    object-fit: contain;
 }
 
 #searchbar-right-elements{
@@ -205,7 +228,6 @@
 }
 
 #searchbar-left-elements{
-    position: absolute;
     max-width: 50%;
     display: flex;
     flex-grow: 1;
@@ -220,10 +242,10 @@
 #search-focus-opacity{
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0; 
     left: 0;
-    z-index: 100;
+    z-index: 110;
 }
 
 #image-list-focus{
@@ -356,4 +378,9 @@ input:focus{
     top: 0px;
     z-index: 106;
     justify-content: center;
+    }
+
+    #carosel img{
+        max-height: 70vh;
+        max-width: 40vw;
     }

@@ -3,13 +3,22 @@ const bodyparser = require('body-parser');
 const port = 3005
 const {seed, model} = require('../db');
 const fs = require('fs');
+const cors = require('cors')
 require('dotenv').config();
 app = express();
+app.use(cors());
 app.use(bodyparser.json());
 app.use(express.static('client/dist'));
 app.listen(port, ()=>{
     console.log(`proxy server listening on port ${port}`)
 });
+
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+  
 
 app.get('/api/dbOnConnect', (req, res)=>{
     // i want to be able to ping the server and reload the db
@@ -24,7 +33,7 @@ app.post('/api', (req, res)=>{
     if(req.body.type === "form input"){
         if(req.body.query!==""){
             model.find({name: {$regex: '.*' + req.body.query + '.*' }})
-                .limit(7)
+                .limit(15)
                 .sort({name:1})
                 .then((docs)=>{
                         res.header(301);
